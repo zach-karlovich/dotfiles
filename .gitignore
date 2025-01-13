@@ -1,5 +1,14 @@
+# Ignore all
 *
+
+# Except
 !alacritty/
 !nvim/
 !zsh/
 !.gitignore
+
+# Except files
+!alacritty/*
+!nvim/*
+!zsh/*
+
