@@ -36,10 +36,6 @@ nnoremap <leader>w :w<CR>
 nnoremap <leader>lq :ALEToggleQuickFix<CR>
 
 " Set up Vim Surround
-let g:surround_45deg = "'\r'"
-let g:surround_90deg = "''\r''"
-let g:surround_180deg = "\"\"\"\r\"\"\""
-let g:surround_pairs = "(),[],{},<>,\",',`"
 let g:surround_no_insert_mappings = 1
 
 " Set up Vim Fugitive
