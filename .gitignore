@@ -1,0 +1,5 @@
+*
+!alacritty/
+!nvim/
+!zsh/
+!.gitignore
