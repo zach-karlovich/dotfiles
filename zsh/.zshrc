@@ -48,3 +48,5 @@ export LANG=en_US.UTF-8
 #~~~~~~~~~~~~~~~~~~~~
 alias zshconfig="nvim ~/.zshrc"
 alias ohmyzsh="nvim ~/.oh-my-zsh"
+alias vi="nvim"
+alias viconf="nvim ~/.config/nvim/init.vim"

@@ -18,23 +18,37 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'dense-analysis/ale'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
-Plug 'neovim/nvim-lspconfig'
 call plug#end()
 
 " Configure ALE
-let g:ale_linters = {
-    \ 'python': ['flake8']
-    \ }
-let g:ale_fixers = {
-    \ 'python': ['autopep8']
-    \ }
 let g:ale_fix_on_save = 1
 let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_insert_leave = 0
+let g:ale_lint_on_enter = 0
+
+" Configure ALE Linters and Fixers
+let g:ale_linters = {
+\   'python': ['flake8'],
+\}
+
+let g:ale_fixers = {
+\   'python': ['black'],
+\   '*': ['remove_trailing_lines', 'trim_whitespace']
+\}
+
+" ALE Signs
+let g:ale_sign_error = '✘'
+let g:ale_sign_warning = '⚠'
 
 " Set up key mappings
 nnoremap <leader>q :q<CR>
 nnoremap <leader>w :w<CR>
 nnoremap <leader>lq :ALEToggleQuickFix<CR>
+
+" Additional ALE mappings
+nnoremap <leader>af :ALEFix<CR>
+nnoremap <leader>an :ALENext<CR>
+nnoremap <leader>ap :ALEPrevious<CR>
 
 " Set up Vim Surround
 let g:surround_45deg = "'\r'"
@@ -46,16 +60,15 @@ let g:surround_no_insert_mappings = 1
 " Set up Vim Fugitive
 nnoremap <leader>gs :Git<CR>
 nnoremap <leader>gb :Git blame<CR>
-
-" Set up mappings for nvim-compe
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+nnoremap <leader>gp :Git push<CR>
+nnoremap <leader>gl :Git pull<CR>
+nnoremap <leader>gst :Git status<CR>
+nnoremap <leader>gbr :Git branch<CR>
+nnoremap <leader>grv :Git remote -v<CR>
 
 " Silence providers
 let g:loaded_perl_provider = 0
 let g:loaded_ruby_provider = 0
 
-" LSP Config 
-lua << EOF
-require'lspconfig'.pyright.setup{}
-EOF
+" Key mapping to reload init.vim
+nnoremap <leader>r :source $MYVIMRC<CR>
