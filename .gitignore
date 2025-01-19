@@ -4,11 +4,12 @@
 # Except
 !alacritty/
 !nvim/
+!vim/
 !zsh/
 !.gitignore
 
 # Except files
 !alacritty/*
 !nvim/*
+!vim/*
 !zsh/*
-
